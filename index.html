@@ -23,7 +23,11 @@
         for(key in results.values()) {
           topEvents[key] = results.values()[key];
         }
-        MP.api.events('Track', 'Purchase', params).done(function(results) {
+        var params2 = {
+            type: 'general',     // analysis type for the data, can be 'general', 'unique', or 'average'
+            unit: 'day',        // level of granularity of the data, can be 'minute', 'hour', 'day', 'week', 'month'
+        };
+        MP.api.events(, params2).done(function(results) {
           console.log('got results', results.values());
         });
       });
