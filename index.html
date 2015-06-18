@@ -23,9 +23,9 @@
         for(key in results.values()) {
           topEvents[key] = results.values()[key];
         }
-        for(var i = 0; i < topEvents.length; i++) {
-          console.log(topEvents[i]);
-        }
+        MP.api.events('Track', 'Purchase', params).done(function(results) {
+          console.log('got results', results.values());
+        });
       });
     }
     </script>
