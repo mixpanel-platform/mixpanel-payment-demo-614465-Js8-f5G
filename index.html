@@ -16,10 +16,18 @@
     <script>
     var dateSelect  = $('#dateSelect').MPDatepicker();
     var runQuery = function () {
-      params = dateSelect.MPDatepicker('value');
+      var params = dateSelect.MPDatepicker('value');
+      var topEvents = [];
       params['limit'] = 100;
       MP.api.topEvents(params).done(function(results) {
-        console.log('top events\n', results.values()[0]);
+        for(key in results.values()) {
+          topEvents[key] = results.values()[key];
+          console.log(results.values()[key]);
+        }
+        console.log('out of for loop');
+        for(var i = 0; i < topEvents.length; i++) {
+          console.log(topEvents[i]);
+        }
       });
     }
     </script>
