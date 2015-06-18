@@ -16,7 +16,9 @@
     <script>
     var dateSelect  = $('#dateSelect').MPDatepicker();
     var runQuery = function () {
-      MP.api.topEvents({from: 'today', limit: 2}).done(function(results) {
+      params = dateSelect.MPDatepicker('value');
+      params['limit'] = 2;
+      MP.api.topEvents(params).done(function(results) {
         console.log('top events\n', results.values());
       });
     }
