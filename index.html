@@ -19,7 +19,7 @@
       params = dateSelect.MPDatepicker('value');
       params['limit'] = 100;
       MP.api.topEvents(params).done(function(results) {
-        console.log('top events\n', results.values());
+        console.log('top events\n', results.values()[0]);
       });
     }
     </script>
