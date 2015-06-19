@@ -10,7 +10,7 @@
     <div class="mixpanel-platform-section">
     <div id="dateSelect" style="float: right;"></div>
     <br clear="all" />
-    <input type="button" name="submitButton" id="submitButton" onclick="runQuery()" value="Export Top Events" style="font-weight: bold; color: rgb(95,105,131); font-size: 12px; height: 31px; padding: 0 10px; margin-left: 10px; border: 1px solid rgb(201,209,219); background-color: rgb(242,244,246)">
+    <input type="button" name="submitButton" id="submitButton" onclick="runQuery()" value="Export Top Events" style="font-weight: bold; color: rgb(95,105,131); font-size: 12px; height: 31px; padding: 0 10px; margin-left: 10px; border: 1px solid rgb(201,209,219); background-color: rgb(242,244,246)"><input type="button" onclick="printEventsList()" value="press" />
     <br clear="all" />
     </div>
     <script>
@@ -30,15 +30,11 @@
             window.eventsList.push(results.values());
           });
         }
-        while(window.eventsList.length < params['limit']){
-          console.log("event list length = "+window.eventsList.length+", params = "+params['limit']);
-        }
-        console.log(window.eventsList);
       });
     }
     
-    function printEventsList(eventsList) {
-      console.log(eventsList);
+    function printEventsList() {
+      console.log(window.eventsList);
     }
     
     function JSONToCSVConvertor(JSONData, ReportTitle) {
