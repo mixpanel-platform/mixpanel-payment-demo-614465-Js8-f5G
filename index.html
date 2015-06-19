@@ -104,6 +104,21 @@
       document.body.removeChild(link);
       
     };
+    
+    //Creating dictionary for each property
+    function getSubKeys(listOfDicts) {
+      subkeys = {};
+      //For each profile
+      _.each(_.keys(listOfDicts), function(profileIndex){
+        var profilePropData = listOfDicts[profileIndex]['$properties'];
+        _.each(_.keys(profilePropData), function(property){
+          try {
+            subkeys[property] = true;
+          } catch (e) {}
+        });
+      });
+      return subkeys;
+    };  
     </script>
   </body>
 </html>
