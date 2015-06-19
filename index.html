@@ -23,12 +23,13 @@
         return size;
     };
     var runQuery = function () {
-      var params = dateSelect.MPDatepicker('value');
+      window.dates = dateSelect.MPDatepicker('value');
+      var params = window.dates;
       window.eventsList = [];
       params['limit'] = 100;
       MP.api.topEvents(params).done(function(results) {
 
-        var params2 = dateSelect.MPDatePicker('value');
+        var params2 = window.dates;
         params2['type'] = 'general';
         params2['unit'] = 'day';
         window.eventCount = Object.size(results.values());
