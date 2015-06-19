@@ -56,7 +56,7 @@
       row += 'date, '
       for(var i = 0; i < data.length; i++) {
         for(key in data[i]) {
-          row += data[i][key] + ','; 
+          row += key + ','; 
         }
       }
       CSV += row + '\r\n';
