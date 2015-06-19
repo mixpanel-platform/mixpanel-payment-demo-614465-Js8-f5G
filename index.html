@@ -35,10 +35,9 @@
         for(key in results.values()) {
           MP.api.events(results.values()[key], params2).done(function(results) {
             window.eventsList.push(results.values());
-            console.log(window.eventCount);
-            //if(window.eventsList.length == Object.size()){
-              //alert('ehllo world!');
-            //}
+            if(window.eventsList.length == Object.size()){
+              alert('ehllo world!');
+            }
           });
         }
         
