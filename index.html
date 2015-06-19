@@ -28,13 +28,14 @@
           MP.api.events(results.values()[key], params2).done(function(results) {
             console.log('results for one event', results.values());
             window.eventsList.push(results.values());
+            if(window.eventsList.length == 2){
+              alert('ehllo world!');
+            }
           });
         }
-      });
-      for(var i = 0; i < 100000000000000000; i++){
         
-      }
-      console.log(window.eventsList);
+      });
+
     }
     
     function printEventsList() {
