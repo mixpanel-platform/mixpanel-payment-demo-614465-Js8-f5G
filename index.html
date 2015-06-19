@@ -48,28 +48,17 @@
     }
     
     
-    function JSONToCSVConvertor(JSONData, ReportTitle) {
+    function JSONToCSVConvertor(data, ReportTitle) {
       //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
-      var data = typeof JSONData != 'object' ? JSON.parse(JSONData) : JSONData;
       var CSV = '';
       console.log(data);
       
-      //Create list of profiles
-      var event_list = [];
-      for (i = 0; i < JSONData.length; i++) {
-        _.each(_.keys(data[i]), function(profileIndex){
-        var profileData = data[i][profileIndex];
-        event_list.push(profileData)
-        });
-      };
-      
       //Write the header with people properties
-      subkeys = getSubKeys(event_list)
       var row = ''
       row += 'date, '
-      _.each(_.keys(subkeys), function(property) {
-        row += property + ','
-      })
+      for(var i = 0; i < data.length; i++) {
+        row += property + ',';
+      }
       CSV += row + '\r\n';
       
       //Write the data
