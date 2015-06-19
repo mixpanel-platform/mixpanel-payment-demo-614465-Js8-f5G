@@ -36,7 +36,9 @@
           MP.api.events(results.values()[key], params2).done(function(results) {
             window.eventsList.push(results.values());
             if(window.eventsList.length == window.eventCount){
-              alert('ehllo world!');
+              for(var i = 0; i < window.eventsList.length; i++){
+                console.log(window.eventsList[i]);
+              }
             }
           });
         }
