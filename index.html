@@ -69,29 +69,27 @@
           sortedDates.push(date);
         }
       }
-      console.log(sortedDates.sort());
+      sortedDates = sortedDates.sort();
       
       //Write the data
       
-      // get first key (first event name) to use to iterate through all dates
-      // only goes through loop once (only one element in data[0])
-      for(key in data[0]){
-        // goes through each date in array element 0 with key == first event
-        for(date in data[0][key]) {
-          // add date in first column
-          var row = '';
-          row += date + ',';
-          // for the X events in data...
-          for(var i = 0; i < data.length; i++) {
-            // get the event name...
-            for(event in data[i]){
-              // use the event name and the current date we're on to get event count
-              row += data[i][event][date];
-            }
+      
+      // goes through each date in array element 0 with key == first event
+      for(var a = 0; a < sortedDates.length; a++) {
+        // add date in first column
+        var row = '';
+        row += sortedDates[a] + ',';
+        // for the X events in data...
+        for(var i = 0; i < data.length; i++) {
+          // get the event name...
+          for(event in data[i]){
+            // use the event name and the current date we're on to get event count
+            row += data[i][event][sortedDates[a]] + ',';
           }
-          CSV += row + '\r\n';
         }
+        CSV += row + '\r\n';
       }
+      
       
       /*  
       //Generate a file name
