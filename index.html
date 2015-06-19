@@ -25,7 +25,7 @@
     var runQuery = function () {
       var params = dateSelect.MPDatepicker('value');
       window.eventsList = [];
-      params['limit'] = 2;
+      params['limit'] = 100;
       MP.api.topEvents(params).done(function(results) {
         var params2 = {
             type: 'general',     // analysis type for the data, can be 'general', 'unique', or 'average'
