@@ -16,11 +16,6 @@
     <script>
     var dateSelect  = $('#dateSelect').MPDatepicker();
     var runQuery = function () {
-        var dateRange  = dateSelect.MPDatepicker('value');
-      MP.api.topEvents({from: dateRange.from, limit: 2}).done(function(results) {
-          console.log('top events\n', results.values());
-      });
-      /*
       var params = dateSelect.MPDatepicker('value');
       params['limit'] = 100;
       alert (params['from']);
@@ -35,7 +30,7 @@
             //console.log('results for one event', results.values());
           });
         }
-      });*/
+      });
     }
     </script>
   </body>
