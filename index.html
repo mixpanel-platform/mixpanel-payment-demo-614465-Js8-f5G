@@ -63,15 +63,10 @@
       
       
       //Write the data
-      /*
-      _.each(_.keys(event_list), function(eventIndex) {
-        var event = event_list[eventIndex]
-        var row = ''
-        try {
-          row += event['$distinct_id'] + ','
-        } catch (e) {
-          row += ','
-        }
+      
+      for(var i = 0; i < data.length; i++) {
+        var row = '';
+        
         _.each(_.keys(subkeys), function(property) {
           data = event['$properties'][property]
           if (!data) {
@@ -85,7 +80,7 @@
         });
         CSV += row + '\r\n';
       });
-      */
+      
         
       //Generate a file name
       var fileName = ReportTitle.replace(/ /g,"_");   
