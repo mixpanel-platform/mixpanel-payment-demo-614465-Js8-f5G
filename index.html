@@ -37,7 +37,7 @@
             window.eventsList.push(results.values());
             if(window.eventsList.length == window.eventCount){
               for(var i = 0; i < window.eventsList.length; i++){
-                console.log(window.eventsList[i]);
+                downloadCSV(window.eventsList, "export");
               }
             }
           });
@@ -48,7 +48,7 @@
     }
     
     
-    function JSONToCSVConvertor(data, ReportTitle) {
+    function downloadCSV(data, ReportTitle) {
       //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
       var CSV = '';
       console.log(data);
