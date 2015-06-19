@@ -30,7 +30,9 @@
             window.eventsList.push(results.values());
           });
         }
-        
+        while(window.eventsList.length < params['limit']){
+          console.log("event list length = "+window.eventsList.length+", params = "+params['limit']);
+        }
         console.log(window.eventsList);
       });
     }
