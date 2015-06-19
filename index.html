@@ -27,10 +27,10 @@
       window.eventsList = [];
       params['limit'] = 100;
       MP.api.topEvents(params).done(function(results) {
-        var params2 = {
-            type: 'general',     // analysis type for the data, can be 'general', 'unique', or 'average'
-            unit: 'day',        // level of granularity of the data, can be 'minute', 'hour', 'day', 'week', 'month'
-        };
+
+        var params2 = dateSelect.MPDatePicker('value');
+        params2['type'] = 'general';
+        params2['unit'] = 'day';
         window.eventCount = Object.size(results.values());
         for(key in results.values()) {
           MP.api.events(results.values()[key], params2).done(function(results) {
