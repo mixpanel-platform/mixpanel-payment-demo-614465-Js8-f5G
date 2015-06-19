@@ -28,7 +28,7 @@
           MP.api.events(results.values()[key], params2).done(function(results) {
             console.log('results for one event', results.values());
             window.eventsList.push(results.values());
-            if(window.eventsList.length == 2){
+            if(window.eventsList.length == params['limit']){
               alert('ehllo world!');
             }
           });
