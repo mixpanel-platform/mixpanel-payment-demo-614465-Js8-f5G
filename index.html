@@ -18,16 +18,14 @@
     var runQuery = function () {
       var params = dateSelect.MPDatepicker('value');
       params['limit'] = 100;
-      alert (params['from']);
       MP.api.topEvents(params).done(function(results) {
         var params2 = {
             type: 'general',     // analysis type for the data, can be 'general', 'unique', or 'average'
             unit: 'day',        // level of granularity of the data, can be 'minute', 'hour', 'day', 'week', 'month'
         };
-        console.log(results.values());
         for(key in results.values()) {
           MP.api.events(results.values()[key], params2).done(function(results) {
-            //console.log('results for one event', results.values());
+            console.log('results for one event', results.values());
           });
         }
       });
