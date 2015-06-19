@@ -21,8 +21,8 @@
       params['limit'] = 100;
       MP.api.topEvents(params).done(function(results) {
         for(key in results.values()) {
-          topEvents[key] = results.values()[key];
-        }
+          // one event -> results.values()[key];
+        
         var params2 = {
             type: 'general',     // analysis type for the data, can be 'general', 'unique', or 'average'
             unit: 'day',        // level of granularity of the data, can be 'minute', 'hour', 'day', 'week', 'month'
