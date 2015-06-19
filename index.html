@@ -31,10 +31,11 @@
             type: 'general',     // analysis type for the data, can be 'general', 'unique', or 'average'
             unit: 'day',        // level of granularity of the data, can be 'minute', 'hour', 'day', 'week', 'month'
         };
-        console.log(Object.size(results.values()));
+        
         for(key in results.values()) {
           MP.api.events(results.values()[key], params2).done(function(results) {
             window.eventsList.push(results.values());
+            console.log(Object.size(results.values()));
             //if(window.eventsList.length == Object.size()){
               //alert('ehllo world!');
             //}
