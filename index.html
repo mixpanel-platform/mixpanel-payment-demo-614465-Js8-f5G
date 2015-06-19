@@ -51,7 +51,7 @@
       var CSV = '';
       console.log(data);
       
-      //Write the header with people properties
+      //Write the headers
       var row = ''
       row += 'date, '
       for(var i = 0; i < data.length; i++) {
@@ -64,22 +64,25 @@
       
       //Write the data
       
-      for(var i = 0; i < data.length; i++) {
-        var row = '';
-        
-        _.each(_.keys(subkeys), function(property) {
-          data = event['$properties'][property]
-          if (!data) {
-            row += ','
-          } else if (_.isString(data)) {
-            row += data.replace(/,/g, "|") + ","
-          } else {
-            row += data + ","
+      // get first key (first event name) to use to iterate through all dates
+      // only goes through loop once (only one element in data[0])
+      for(key in data[0]){
+        // goes through each date in array element 0 with key == first event
+        for(date in data[0][key]) {
+          // add date in first column
+          var row = '';
+          row += date + ',';
+          // for the X events in data...
+          for(var i = 0; i < data.length; i++) {
+            // get the event name...
+            for(event in data[i]){
+              // use the event name and the current date we're on to get event count
+              row += data[i][event][date];
+            }
           }
-          //if (data.indexOf(',') > -1) 
-        });
-        CSV += row + '\r\n';
-      });
+          CSV += row + '\r\n';
+        }
+      }
       
         
       //Generate a file name
@@ -108,20 +111,6 @@
       
     };
     
-    //Creating dictionary for each property
-    function getSubKeys(listOfDicts) {
-      subkeys = {};
-      //For each profile
-      _.each(_.keys(listOfDicts), function(profileIndex){
-        var profilePropData = listOfDicts[profileIndex]['$properties'];
-        _.each(_.keys(profilePropData), function(property){
-          try {
-            subkeys[property] = true;
-          } catch (e) {}
-        });
-      });
-      return subkeys;
-    };  
     </script>
   </body>
 </html>
