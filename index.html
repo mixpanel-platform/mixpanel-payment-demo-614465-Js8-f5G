@@ -57,7 +57,9 @@
       var row = ''
       row += 'date, '
       for(var i = 0; i < data.length; i++) {
-        row += property + ',';
+        for(key in data[i]) {
+          row += data[i][key] + ','; 
+        }
       }
       CSV += row + '\r\n';
       
