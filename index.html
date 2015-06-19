@@ -47,7 +47,6 @@
     
     
     function downloadCSV(data, ReportTitle) {
-      //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
       var CSV = '';
       var sortedDates = [];
       console.log(data);
@@ -73,8 +72,7 @@
       
       //Write the data
       
-      
-      // goes through each date in array element 0 with key == first event
+      // goes through each date 
       for(var a = 0; a < sortedDates.length; a++) {
         // add date in first column
         var row = '';
