@@ -17,7 +17,7 @@
     var dateSelect  = $('#dateSelect').MPDatepicker();
     var runQuery = function () {
       var params = dateSelect.MPDatepicker('value');
-      var eventsList = [];
+      window.eventsList = [];
       params['limit'] = 2;
       MP.api.topEvents(params).done(function(results) {
         var params2 = {
@@ -27,10 +27,11 @@
         for(key in results.values()) {
           MP.api.events(results.values()[key], params2).done(function(results) {
             console.log('results for one event', results.values());
-            eventList.append(results.values());
+            window.eventList.append(results.values());
           });
         }
       });
+      console.log(window.eventList);
     }
     
     function JSONToCSVConvertor(JSONData, ReportTitle) {
