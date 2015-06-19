@@ -49,7 +49,7 @@
     function downloadCSV(data, ReportTitle) {
       //If JSONData is not an object then JSON.parse will parse the JSON string in an Object
       var CSV = '';
-      var sortedDates = '';
+      var sortedDates = [];
       console.log(data);
       
       //Write the headers
@@ -66,7 +66,7 @@
       for(key in data[0]){
         // goes through each date in array element 0 with key == first event
         for(date in data[0][key]) {
-          
+          sortedDates.push(date);
         }
       }
       
@@ -92,7 +92,7 @@
         }
       }
       
-        
+      /*  
       //Generate a file name
       var fileName = ReportTitle.replace(/ /g,"_");   
   
@@ -116,7 +116,7 @@
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
-      
+      */
     };
     
     </script>
