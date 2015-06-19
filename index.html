@@ -15,6 +15,13 @@
     </div>
     <script>
     var dateSelect  = $('#dateSelect').MPDatepicker();
+    Object.size = function(obj) {
+        var size = 0, key;
+        for (key in obj) {
+            if (obj.hasOwnProperty(key)) size++;
+        }
+        return size;
+    };
     var runQuery = function () {
       var params = dateSelect.MPDatepicker('value');
       window.eventsList = [];
@@ -24,12 +31,13 @@
             type: 'general',     // analysis type for the data, can be 'general', 'unique', or 'average'
             unit: 'day',        // level of granularity of the data, can be 'minute', 'hour', 'day', 'week', 'month'
         };
+        console.log(Object.)
         for(key in results.values()) {
           MP.api.events(results.values()[key], params2).done(function(results) {
             window.eventsList.push(results.values());
-            if(window.eventsList.length == /*TODO: this should be # of returned elements from first API request*/){
-              alert('ehllo world!');
-            }
+            //if(window.eventsList.length == Object.size()){
+              //alert('ehllo world!');
+            //}
           });
         }
         
