@@ -142,8 +142,8 @@
       
       MP.api.propertyValues(window.topEvent, $("#propSelect").val(), params).done(function(results) {
           console.log(results.values());
+          $('#propValueSelect').MPSelect();
       });
-      //$('#propValueSelect').MPSelect(window.itemListFinal);
     }
     
     </script>
