@@ -16,7 +16,16 @@
     </div>
     <script>
     var dateSelect  = $('#dateSelect').MPDatepicker();
-    var propSelect  = $('#propSelect').MPPropertySelect('setEvent','Registration');
+    /* Property dropdown setup */
+    var options = {
+      items: [
+        {label: 'Label 1', value: 1},
+        {label: 'Label 2', value: 'Value 2'},
+        {label: 'Third label', value: '3rd value'}
+      ]
+    };
+    /* End property dropdown setup */
+    
     Object.size = function(obj) {
         var size = 0, key;
         for (key in obj) {
