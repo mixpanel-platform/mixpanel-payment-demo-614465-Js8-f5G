@@ -23,7 +23,7 @@
     window.topProperties = [];
     var items  = [];
     MP.api.topEvents({'limit':1}).done(function(results) {
-      window.topEvent = results.values()[0];
+      console.log(results.values()[0]);
     });
     console.log(window.topEvent);
     var options = {
