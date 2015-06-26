@@ -25,6 +25,9 @@
     MP.api.topEvents({'limit':1}).done(function(results) {
       MP.api.topProperties(results.values()[0], {'limit':200}).done(function(results) {
           console.log('top properties\n', results.values());
+          for (property in results.values()){
+            var options = {};
+          }
       });
     });
     var options = {
