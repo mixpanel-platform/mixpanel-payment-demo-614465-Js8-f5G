@@ -149,6 +149,7 @@
           }
           options['items'] = itemList;
           $('#propValueSelect').remove();
+          $('#propValueSelect').MPSelect(options);
       });
     }
     $("#propSelect").on('change', generatePropertyValues);
