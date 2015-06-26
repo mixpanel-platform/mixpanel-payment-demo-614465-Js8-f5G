@@ -19,11 +19,8 @@
     /* Property dropdown setup */
     // ADD THIS ALL IN AN ONLOAD (last priority)
     // Get top properties for top event and organize them
-    window.topEvent = '';
-    window.topProperties = [];
     MP.api.topEvents({'limit':1}).done(function(results) {
       MP.api.topProperties(results.values()[0], {'limit':200}).done(function(results) {
-          console.log('top properties\n', results.values());
           var options = {};
           var itemList = [];
           for (property in results.values()){
@@ -33,7 +30,6 @@
           $('#propSelect').MPSelect(options);
       });
     });
-
     /* End property dropdown setup */
     
     Object.size = function(obj) {
