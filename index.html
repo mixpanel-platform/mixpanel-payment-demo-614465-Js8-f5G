@@ -23,8 +23,11 @@
     window.topProperties = [];
     var items  = [];
     MP.api.topEvents({'limit':1}).done(function(results) {
-      console.log(results.values()[0]);
+      window.topEvent = results.values()[0];
     });
+    while(window.TopEvent = ''){
+      
+    }
     console.log(window.topEvent);
     var options = {
       items: [
