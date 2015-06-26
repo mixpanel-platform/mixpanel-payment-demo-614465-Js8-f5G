@@ -23,7 +23,7 @@
     window.topProperties = [];
     var items  = [];
     MP.api.topEvents({'limit':1}).done(function(results) {
-      MP.api.topProperties(results.values()[0], params).done(function(results) {
+      MP.api.topProperties(results.values()[0], {'limit':100}).done(function(results) {
           console.log('top properties\n', results.values());
       });
     });
