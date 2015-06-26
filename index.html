@@ -19,12 +19,12 @@
     /* Property dropdown setup */
     // ADD THIS ALL IN AN ONLOAD (last priority)
     // Get top properties for top event and organize them
-    params['limit'] = 100;
+    params['limit'] = 1;
     window.topEvent = '';
     window.topProperties = [];
-    var items 
+    var items  = [];
     MP.api.topEvents(params).done(function(results) {
-      
+      console.log(results.values());
     }
     var options = {
       items: [
