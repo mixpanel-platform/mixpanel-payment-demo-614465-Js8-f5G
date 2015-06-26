@@ -29,6 +29,7 @@
             itemList.push({label:property,value:property});
           }
           options['items'] = itemList;
+          window.itemListFinal = itemList;
           $('#propSelect').MPSelect(options);
       });
     });
