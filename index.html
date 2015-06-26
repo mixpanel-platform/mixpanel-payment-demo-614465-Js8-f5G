@@ -45,6 +45,8 @@
         }
         return size;
     };
+    
+    /* Main query function */
     var runQuery = function () {
       window.dates = dateSelect.MPDatepicker('value');
       var params = window.dates;
@@ -68,6 +70,7 @@
       });
     }
     
+    /* Function that downloads CSV */
     function downloadCSV(data, ReportTitle) {
       var CSV = '';
       var sortedDates = [];
