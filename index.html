@@ -63,6 +63,7 @@
         console.log("property name = "+propertyName+", property value = "+propertyValue);
         if(propertyName){
           params2['where'] = 'properties["'+propertyName+'"] == "'+propertyValue+'"'; 
+          console.log('segmenting on property');
         }
         window.eventCount = Object.size(results.values());
         for(key in results.values()) {
