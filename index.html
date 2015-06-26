@@ -148,8 +148,8 @@
             itemList.push({label:propertyVal,value:propertyVal});
           }
           options['items'] = itemList;
-          $('#propValueSelect').remove();
-          $('#propValueSelect').MPSelect(options);
+          var propValSelect = $('<div></div>').appendTo('propValueSelect').MPEventSelect();
+          propValSelect.MPSelect(options);
       });
     }
     $("#propSelect").on('change', generatePropertyValues);
