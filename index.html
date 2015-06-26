@@ -29,8 +29,9 @@
             itemList.push({label:property,value:property});
           }
           options['items'] = itemList;
-          window.itemListFinal = itemList;
+          window.itemListFinal = options;
           $('#propSelect').MPSelect(options);
+          generatePropertyValues();
       });
     });
     /* End property dropdown setup */
@@ -133,7 +134,7 @@
     };
     
     function generatePropertyValues(){
-      
+      $('#propValueSelect').MPSelect(window.itemListFinal);
     }
     
     </script>
