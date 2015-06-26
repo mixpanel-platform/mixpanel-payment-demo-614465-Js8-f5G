@@ -145,7 +145,7 @@
           var options = {};
           var itemList = [];
           for (propertyVal in results.values()){
-            itemList.push({label:propertyVal,value:propertyVal});
+            itemList.push({label:results.values()[propertyVal],value:results.values()[propertyVal]});
           }
           options['items'] = itemList;
           $('#actualPropValSelect').remove();
