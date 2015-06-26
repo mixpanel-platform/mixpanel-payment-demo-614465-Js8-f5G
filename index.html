@@ -54,10 +54,12 @@
       // top 100 events
       params['limit'] = 100;
       MP.api.topEvents(params).done(function(results) {
-
         var params2 = window.dates;
         params2['type'] = 'general';
         params2['unit'] = 'day';
+        propertyName = $('#propSelect').val();
+        propertyValue = $('#actualPropValSelect').val();
+        params2['where'] = 'properties["'+propertyName+'"] == '+propertyValue;
         window.eventCount = Object.size(results.values());
         for(key in results.values()) {
           MP.api.events(results.values()[key], params2).done(function(results) {
