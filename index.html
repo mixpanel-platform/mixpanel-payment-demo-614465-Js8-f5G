@@ -59,6 +59,7 @@
         params2['unit'] = 'day';
         propertyName = $('#propSelect').val();
         propertyValue = $('#actualPropValSelect').val();
+        console.log("property name = "+propertyName+", property value = "+propertyValue);
         params2['where'] = 'properties["'+propertyName+'"] == '+propertyValue;
         window.eventCount = Object.size(results.values());
         for(key in results.values()) {
