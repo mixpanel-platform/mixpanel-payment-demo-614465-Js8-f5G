@@ -23,6 +23,7 @@
     // ADD THIS ALL IN AN ONLOAD (last priority)
     // Get top properties for top event and organize them
     MP.api.topEvents({'limit':1}).done(function(results) {
+      window.topEvent = results.values()[0];
       MP.api.topProperties(results.values()[0], {'limit':200}).done(function(results) {
           var options = {};
           var itemList = [];
@@ -135,7 +136,14 @@
     };
     
     function generatePropertyValues(){
-      $('#propValueSelect').MPSelect(window.itemListFinal);
+      var params = {
+          limit: 100      // maximum number of results to return
+      };
+      
+      MP.api.propertyValues(window.topEvent, $("#propSelect").val(), params).done(function(results) {
+          console.log(results.values());
+      });
+      //$('#propValueSelect').MPSelect(window.itemListFinal);
     }
     
     </script>
