@@ -28,7 +28,10 @@
           var options = {};
           var items = [];
           for (property in results.values()){
-            item.
+            items.push({label:property,value:property});
+          }
+          for (var i = 0; i < items.length; i++){
+            print items[i];
           }
       });
     });
