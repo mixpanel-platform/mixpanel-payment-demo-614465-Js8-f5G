@@ -149,19 +149,23 @@
       var params = {
           limit: 100      
       }
-      
-      // Get all property values for the top event and property selected
-      MP.api.propertyValues(window.topEvent, $("#propSelect").val(), params).done(function(results) {
-          console.log(results.values());
-          var options = {};
-          var itemList = [];
-          for (propertyVal in results.values()){
-            itemList.push({label:results.values()[propertyVal],value:results.values()[propertyVal]});
-          }
-          options['items'] = itemList;
-          $('#actualPropValSelect').remove();
-          var propValSelect = $('<div id="actualPropValSelect"></div>').appendTo('#propValueSelect').MPSelect(options);
-      });
+      if(!$("#propSelect").val()){
+        
+      }
+      else {
+        // Get all property values for the top event and property selected
+        MP.api.propertyValues(window.topEvent, $("#propSelect").val(), params).done(function(results) {
+            console.log(results.values());
+            var options = {};
+            var itemList = [];
+            for (propertyVal in results.values()){
+              itemList.push({label:results.values()[propertyVal],value:results.values()[propertyVal]});
+            }
+            options['items'] = itemList;
+            $('#actualPropValSelect').remove();
+            var propValSelect = $('<div id="actualPropValSelect"></div>').appendTo('#propValueSelect').MPSelect(options);
+        });
+      }
     }
     $("#propSelect").on('change', generatePropertyValues);
     </script>
