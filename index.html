@@ -148,7 +148,7 @@
             itemList.push({label:propertyVal,value:propertyVal});
           }
           options['items'] = itemList;
-          $('#propValueSelect').MPSelect(options);
+          $('#propValueSelect').MPSelect(null);
       });
     }
     $("#propSelect").on('change', generatePropertyValues);
