@@ -21,26 +21,19 @@
     // Get top properties for top event and organize them
     window.topEvent = '';
     window.topProperties = [];
-    var items  = [];
     MP.api.topEvents({'limit':1}).done(function(results) {
       MP.api.topProperties(results.values()[0], {'limit':200}).done(function(results) {
           console.log('top properties\n', results.values());
           var options = {};
-          var items = [];
+          var itemList = [];
           for (property in results.values()){
-            items.push({label:property,value:property});
+            itemList.push({label:property,value:property});
           }
-          options[items:]
+          options[items] = itemList;
+          $('#propSelect').MPSelect(options);
       });
     });
-    var options = {
-      items: [
-        {label: 'Label 1', value: 1},
-        {label: 'Label 2', value: 'Value 2'},
-        {label: 'Third label', value: '3rd value'}
-      ]
-    };
-    $('#propSelect').MPSelect(options);
+
     /* End property dropdown setup */
     
     Object.size = function(obj) {
