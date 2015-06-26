@@ -29,7 +29,7 @@
           for (property in results.values()){
             itemList.push({label:property,value:property});
           }
-          options[items] = itemList;
+          options['items'] = itemList;
           $('#propSelect').MPSelect(options);
       });
     });
