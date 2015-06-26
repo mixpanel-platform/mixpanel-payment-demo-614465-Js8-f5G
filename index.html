@@ -27,7 +27,7 @@
       MP.api.topProperties(results.values()[0], {'limit':200}).done(function(results) {
           var options = {};
           var itemList = [];
-          itemList.push({label:'--property select--', value:null});
+          itemList.push({label:'-- no property --', value:null});
           for (property in results.values()){
             itemList.push({label:property,value:property});
           }
