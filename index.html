@@ -144,10 +144,13 @@
     
     /* Function that resets the property value dropdown per the property selected */
     function generatePropertyValues(){
-      var params = {
-          limit: 100      // maximum number of results to return
-      };
       
+      // Set params 
+      var params = {
+          limit: 100      
+      }
+      
+      // Get all property values for the top event and property selected
       MP.api.propertyValues(window.topEvent, $("#propSelect").val(), params).done(function(results) {
           console.log(results.values());
           var options = {};
